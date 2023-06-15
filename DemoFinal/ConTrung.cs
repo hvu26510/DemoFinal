@@ -45,11 +45,40 @@ namespace DemoFinal
             Console.Write("Loai :");
             this.loai = Console.ReadLine();
             Console.WriteLine();
-
             Console.Write("So chan:");
-            this.soChan = int.Parse(Console.ReadLine());
+            try
+            {
+                this.soChan = nhapSoChan();
+            } catch (SoChanException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if(this.soChan <= 0 || (this.soChan % 2 != 0))
+                {
+                    this.soChan = 4;
+                    Console.WriteLine("So chan duoc dat la 4");
+                }
+                
+            }
+            
             Console.WriteLine();
 
+        }
+
+        public int nhapSoChan()
+        {
+            int x = -1;
+
+            x = int.Parse(Console.ReadLine());
+
+            if(x<=0 || (x % 2 !=0))
+            {
+                throw new SoChanException("So chan sai, so chan phai la so chan");
+            }
+
+            return x;
         }
 
     }

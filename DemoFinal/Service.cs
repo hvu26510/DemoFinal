@@ -63,6 +63,25 @@ namespace DemoFinal
 
         }
 
+        public static void UpDateByID()
+        {
+            Console.WriteLine("Nhap id muon cap nhat:");
+            int id = int.Parse(Console.ReadLine());
+
+            foreach (ConTrung ct in listConTrungs)
+            {
+                if (ct.getId() == id)
+                {
+                    int index = listConTrungs.IndexOf(ct);
+                    ConTrung newCT = new ConTrung();
+                    newCT.nhap();
+                    listConTrungs[index] = newCT;
+                    break;
+                }
+            }
+            //List<ConTrung> ct = listConTrungs.Where(ct1 =>ct1.getsoChan()==sochan).ToList();
+
+        }
         public static void DeleteByID()
         {
             Console.WriteLine("Nhap id muon xoa:");

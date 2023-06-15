@@ -22,6 +22,8 @@ namespace DemoFinal
                 Console.WriteLine("4: Xoa theo ID");
                 Console.WriteLine("5: Sap xep danh sach theo ten loai");
                 Console.WriteLine("6: Ke thua");
+                Console.WriteLine("7: Update by ID");
+
 
 
                 Console.WriteLine("0: Thoat");
@@ -62,6 +64,11 @@ namespace DemoFinal
                     case "6":
                         {
                             KeThua();
+                            break;
+                        }
+                    case "7":
+                        {
+                            Service.UpDateByID();
                             break;
                         }
                     default:
